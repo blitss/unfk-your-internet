@@ -132,6 +132,8 @@ set_uci_param() {
 	if [ "$current_value" != "$value" ]; then
 		echo "  Setting ${param}=${value}"
 		uci set "zapret.config.${param}=$value"
+	else
+		echo "  Unchanged ${param}=${value}"
 	fi
 }
 

@@ -47,21 +47,16 @@ Workflow `.github/workflows/sync-lists.yml` запускает `sync-lists.sh` *
 
 ## Credits
 
-- **zapret**: проект `bol-van/zapret` — `https://github.com/bol-van/zapret`
-  - WA “udp 11/01” подсказка: `https://github.com/bol-van/zapret/discussions/1908#discussioncomment-15359781`
+- **zapret**: проект [bol-van/zapret](https://github.com/bol-van/zapret)
+  - WA “udp 11/01” подсказка: [discussioncomment-15359781](https://github.com/bol-van/zapret/discussions/1908#discussioncomment-15359781)
 - **CDN IPv4 ranges** (`ipset/cust2.txt`):
-  - источник: `123jjck/cdn-ip-ranges` → `all/all_plain_ipv4.txt`
-  - `https://github.com/123jjck/cdn-ip-ranges`
+  - источник: [123jjck/cdn-ip-ranges](https://github.com/123jjck/cdn-ip-ranges) → [`all/all_plain_ipv4.txt`](https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/main/all/all_plain_ipv4.txt)
 - **WhatsApp CIDR IPv4** (`ipset/wa-ipset.txt`):
-  - источник: `HybridNetworks/whatsapp-cidr` → `WhatsApp/whatsapp_cidr_ipv4.txt`
-  - `https://github.com/HybridNetworks/whatsapp-cidr`
+  - источник: [HybridNetworks/whatsapp-cidr](https://github.com/HybridNetworks/whatsapp-cidr) → [`WhatsApp/whatsapp_cidr_ipv4.txt`](https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/main/WhatsApp/whatsapp_cidr_ipv4.txt)
 - **RKN blocked domains** (`ipset/zapret-hosts-user.txt`):
-  - источник: `IndeecFOX/zapret4rocket` → `extra_strats/TCP/RKN/List.txt`
-  - `https://raw.githubusercontent.com/IndeecFOX/zapret4rocket/master/extra_strats/TCP/RKN/List.txt`
+  - источник: [IndeecFOX/zapret4rocket](https://github.com/IndeecFOX/zapret4rocket) → [`extra_strats/TCP/RKN/List.txt`](https://raw.githubusercontent.com/IndeecFOX/zapret4rocket/master/extra_strats/TCP/RKN/List.txt)
 - **tls client hello “max”** (`files/fake/max.bin`):
-  - источник: `Flowseal/zapret-discord-youtube` (bin)
-  - `https://github.com/Flowseal/zapret-discord-youtube`
+  - источник: [Flowseal/zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube) (bin)
 - **custom.d script example**:
-  - `bol-van/zapret` → `init.d/custom.d.examples.linux/50-stun4all`
-  - `https://github.com/bol-van/zapret`
+  - [bol-van/zapret](https://github.com/bol-van/zapret) → `init.d/custom.d.examples.linux/50-stun4all`
 
