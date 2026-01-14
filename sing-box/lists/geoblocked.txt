@@ -449,5 +449,5 @@ seed.siri.apple.com
 smoot-searchv2-aapse1c.v.aaplimg.com
 
 # works only through vpn for me
-home.mi.com
+mi.com
 api2.cursor.sh

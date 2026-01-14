@@ -1,0 +1,180 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "warn",
+    "timestamp": false
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "https",
+        "tag": "vpn-dns-resolver",
+        "server": "8.8.8.8",
+        "server_port": 443,
+        "detour": "vpn-out",
+        "domain_resolver": "bootstrap-dns-server"
+      },
+      {
+        "type": "udp",
+        "tag": "bootstrap-dns-server",
+        "server": "77.88.8.8",
+        "server_port": 53
+      },
+      {
+        "type": "https",
+        "tag": "dns-server",
+        "server": "8.8.8.8",
+        "server_port": 443
+      },
+      {
+        "type": "fakeip",
+        "tag": "fakeip-server",
+        "inet4_range": "198.18.0.0/15"
+      }
+    ],
+    "rules": [
+      {
+        "action": "reject",
+        "query_type": "HTTPS"
+      },
+      {
+        "action": "reject",
+        "domain_suffix": "use-application-dns.net"
+      },
+      {
+        "action": "route",
+        "server": "fakeip-server",
+        "rewrite_ttl": 60,
+        "domain_suffix": [
+          "cloudflare.com"
+        ]
+      },
+      {
+        "action": "route",
+        "server": "fakeip-server",
+        "rewrite_ttl": 60,
+        "rule_set": [
+          "vpn-ruleset",
+          "warp-ruleset"
+        ]
+      },
+      {
+        "action": "route",
+        "server": "fakeip-server",
+        "rewrite_ttl": 60,
+        "domain_suffix": ".cloudflare.com"
+      }
+    ],
+    "final": "dns-server",
+    "strategy": "ipv4_only",
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tproxy",
+      "tag": "tproxy-in",
+      "listen": "127.0.0.1",
+      "listen_port": 1602,
+      "tcp_fast_open": true,
+      "udp_fragment": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.42",
+      "listen_port": 53
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    },
+    {
+      "type": "direct",
+      "tag": "vpn-out",
+      "bind_interface": "awg0",
+      "domain_resolver": "vpn-dns-resolver"
+    },
+    {
+      "type": "direct",
+      "tag": "warp-out",
+      "bind_interface": "warp",
+      "domain_resolver": "vpn-dns-resolver"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff",
+        "inbound": [
+          "tproxy-in",
+          "dns-in"
+        ]
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      },
+      {
+        "action": "route",
+        "inbound": "tproxy-in",
+        "outbound": "warp-out",
+        "domain_suffix": [
+          "cloudflare.com"
+        ]
+      },
+      {
+        "action": "route",
+        "inbound": "tproxy-in",
+        "outbound": "vpn-out",
+        "rule_set": [
+          "vpn-ruleset"
+        ]
+      },
+      {
+        "action": "route",
+        "inbound": "tproxy-in",
+        "outbound": "warp-out",
+        "rule_set": [
+          "warp-ruleset"
+        ]
+      },
+      {
+        "action": "route",
+        "inbound": "tproxy-in",
+        "outbound": "warp-out",
+        "domain_suffix": ".cloudflare.com"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "vpn-ruleset",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/blitss/unfk-your-internet/main/sing-box/srs/vpn-rule.srs",
+        "update_interval": "1d"
+      },
+      {
+        "type": "remote",
+        "tag": "warp-ruleset",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/blitss/unfk-your-internet/main/sing-box/srs/warp-rule.srs",
+        "update_interval": "1d"
+      }
+    ],
+    "final": "direct-out",
+    "auto_detect_interface": true,
+    "default_domain_resolver": "dns-server"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "/tmp/sing-box/cache.db",
+      "store_fakeip": true
+    },
+    "clash_api": {
+      "external_controller": "0.0.0.0:9090"
+    }
+  }
+}

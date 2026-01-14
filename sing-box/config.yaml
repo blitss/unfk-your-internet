@@ -5,19 +5,12 @@ rules:
   # google deepmind domains
   - domains: lists/google-deepmind.txt
     outbound: vpn
-
   # discord subnets
   - subnets: lists/discord.txt
     outbound: warp
   # discord domains
   - domains: lists/discord-domains.txt
     outbound: warp
-  # alibaba ip ranges (xiaomi home)
-  - subnets: https://raw.githubusercontent.com/ipverse/as-ip-blocks/refs/heads/master/as/45102/ipv4-aggregated.txt
-    outbound: warp
   # whatsapp subnets
   - subnets: https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/main/WhatsApp/whatsapp_cidr_ipv4.txt
-    outbound: warp
-  # telegram subnets (not blocked yet, but sometimes media is fucked and RKN is trying new stuff)
-  - subnets: https://raw.githubusercontent.com/ipverse/as-ip-blocks/refs/heads/master/as/62041/ipv4-aggregated.txt
     outbound: warp
