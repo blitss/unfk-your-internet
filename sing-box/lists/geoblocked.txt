@@ -447,3 +447,6 @@ gateway.icloud.com
 seed-siri-apple-com.v.aaplimg.com
 seed.siri.apple.com
 smoot-searchv2-aapse1c.v.aaplimg.com
+
+# works only through vpn for me
+home.mi.com
