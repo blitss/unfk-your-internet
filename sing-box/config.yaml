@@ -11,6 +11,12 @@ rules:
   # discord domains
   - domains: lists/discord-domains.txt
     outbound: warp
-  # whatsapp subnets
-  - subnets: https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/main/WhatsApp/whatsapp_cidr_ipv4.txt
+  # whatsapp & cdn subnets that zapret is not stable enough for
+  - list:
+      - https://raw.githubusercontent.com/HybridNetworks/whatsapp-cidr/main/WhatsApp/whatsapp_cidr_ipv4.txt
+      - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/cdn77/cdn77_plain_ipv4.txt
+      - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/datacamp/datacamp_plain_ipv4.txt
+      - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/digitalocean/digitalocean_plain_ipv4.txt
+      - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/constant/constant_plain_ipv4.txt
+      - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/ovh/ovh_plain_ipv4.txt
     outbound: warp
