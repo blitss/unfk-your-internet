@@ -6,6 +6,9 @@ on:
     # Weekly on Sunday at 04:00 UTC
     - cron: "0 4 * * 0"
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
