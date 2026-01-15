@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAGS: "with_clash_api"
+      TAGS: "with_clash_api,with_utls"
     steps:
       - name: Setup Go
         uses: actions/setup-go@v5
@@ -63,7 +63,7 @@ jobs:
           name: sing-box ${{ steps.version.outputs.version }}
           body: |
             Minimal sing-box build for OpenWRT aarch64_cortex-a53
-            
+
             **Build tags:** `${{ env.TAGS }}`
           files: |
             sing-box/dist/*
