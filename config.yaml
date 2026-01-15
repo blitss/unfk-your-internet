@@ -38,14 +38,11 @@ NFQWS_OPT: |
   --new
 
   # rkn blocked domains
-  --filter-tcp=443
+  --filter-tcp=80,443
   --hostlist=/opt/zapret/ipset/zapret-hosts-user.txt
-  --dpi-desync=fake,multisplit 
-  --dpi-desync-split-seqovl=654 
-  --dpi-desync-split-pos=1 
-  --dpi-desync-fooling=ts 
-  --dpi-desync-repeats=6 
-  --dpi-desync-split-seqovl-pattern=/opt/zapret/files/fake/max.bin 
+  --dpi-desync=fake
+  --dpi-desync-repeats=6
+  --dpi-desync-fooling=ts
   --dpi-desync-fake-tls=/opt/zapret/files/fake/max.bin
   --new
 
@@ -61,18 +58,15 @@ NFQWS_OPT: |
   --comment AmazonTCP
   --filter-tcp=443
   --ipset=/opt/zapret/ipset/cust2.txt
-  --dpi-desync=fake,multisplit 
-  --dpi-desync-split-seqovl=654 
-  --dpi-desync-split-pos=1 
-  --dpi-desync-fooling=ts 
-  --dpi-desync-repeats=6 
-  --dpi-desync-split-seqovl-pattern=/opt/zapret/files/fake/max.bin 
+  --dpi-desync=fake
+  --dpi-desync-repeats=6
+  --dpi-desync-fooling=ts
   --dpi-desync-fake-tls=/opt/zapret/files/fake/max.bin
   --new
 
   # [quic] cdn ip ranges (cloudflare, amazon, hetzner and so on)
   --comment AmazonUDP
-  --filter-udp=443
+  --filter-udp=80,443
   --ipset=/opt/zapret/ipset/cust2.txt
   --dpi-desync=fake
   --dpi-desync-fake-quic=/opt/zapret/files/fake/quic_initial_www_google_com.bin
@@ -84,23 +78,22 @@ NFQWS_OPT: |
   --filter-l7=discord,stun
   --dpi-desync=fake
   --dpi-desync-repeats=6
+  --dpi-desync-fake-discord=/opt/zapret/files/fake/quic_initial_www_google_com.bin 
+  --dpi-desync-fake-stun=/opt/zapret/files/fake/quic_initial_www_google_com.bin 
   --new
 
   # discord media
   --filter-tcp=2053,2083,2087,2096,8443
   --hostlist-domains=discord.media
-  --dpi-desync=multisplit
-  --dpi-desync-split-seqovl=652
-  --dpi-desync-split-pos=2
-  --dpi-desync-split-seqovl-pattern=/opt/zapret/files/fake/tls_clienthello_www_google_com.bin
+  --dpi-desync=fake 
+  --dpi-desync-repeats=6 
+  --dpi-desync-fooling=ts 
+  --dpi-desync-fake-tls=/opt/zapret/files/fake/tls_clienthello_www_google_com.bin 
   --new
 
   # any hosts that are not on the list
-  --filter-tcp=443 <HOSTLIST>
-  --dpi-desync=fake,multisplit 
-  --dpi-desync-split-seqovl=654 
-  --dpi-desync-split-pos=1 
+  --filter-tcp=80,443 <HOSTLIST>
+  --dpi-desync=fake 
+  --dpi-desync-repeats=6 
   --dpi-desync-fooling=ts 
-  --dpi-desync-repeats=8 
-  --dpi-desync-split-seqovl-pattern=/opt/zapret/files/fake/max.bin 
-  --dpi-desync-fake-tls=/opt/zapret/files/fake/max.bin
+  --dpi-desync-fake-tls=/opt/zapret/files/fake/tls_clienthello_max_ru.bin
