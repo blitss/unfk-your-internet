@@ -3,8 +3,8 @@
 very opinionated project to unf*ck your internet in Russia by combining:
 
 * DPI circumvention (using zapret)
-* Cloudflare WARP (where DPI bypass no longer possible or not stable enough) - using sing-box. 
-* regional blocks (using EU VPN) - using Amnezia and Red Shield VPN, for services like OpenAI
+* ~~Cloudflare WARP (where DPI bypass no longer possible or not stable enough) - using sing-box.~~ в итоге отказался от этой идеи из-за того что warp работает нестабильно
+* regional blocks (using EU VPN) - using Vless and Red Shield VPN, for services like OpenAI
 
 Cтратегия для `zapret`, с идеей **таргетить только заблокированные домены + подсети CDN (Cloudflare/Hetzner/Amazon и др.)**, а не применять tampering “ко всему подряд”.
 
@@ -18,7 +18,7 @@ Cтратегия для `zapret`, с идеей **таргетить тольк
 **Работает:**
 - Instagram, X, LinkedIn
 - FaceTime, Telegram calls, Google Meet
-- WhatsApp (iOS/web)
+- ~~WhatsApp (iOS/web)~~ перестал работать с недавних пор, как будто заблокировали subnet'ы теперь
 - Cloudflare WARP
 - QUIC/HTTP3 — на большинстве ресурсов, но не везде
 

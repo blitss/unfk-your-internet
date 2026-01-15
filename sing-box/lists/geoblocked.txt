@@ -440,14 +440,22 @@ polymarket.com
 crunchbase.com
 ads.reddit.com
 
-apple-relay.apple.com
-apple-relay.mask.apple-dns.net
-gateway.fe2.apple-dns.net
-gateway.icloud.com
-seed-siri-apple-com.v.aaplimg.com
-seed.siri.apple.com
-smoot-searchv2-aapse1c.v.aaplimg.com
+# apple tv, apple intellegence, just route entire apple.com domain
+apple.com
 
-# works only through vpn for me
+# Apple Intelligence ChatGPT Extension
+apple-relay.cloudflare.com
+apple-relay.fastly-edge.com
+apple-relay.mask.apple-dns.net
+
+# Apple TV
+tv.applemusic.com
+
+# Icloud private relay
+mask-api.icloud.com
+mask-h2.icloud.com
+mask.icloud.com
+
+# Works only through vpn for me
 mi.com
 api2.cursor.sh
