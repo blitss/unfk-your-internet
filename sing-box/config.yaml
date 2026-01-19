@@ -19,4 +19,6 @@ rules:
       - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/digitalocean/digitalocean_plain_ipv4.txt
       - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/constant/constant_plain_ipv4.txt
       - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/ovh/ovh_plain_ipv4.txt
+      # Airbnb, Bybit loads incredibly slow sometimes, so it's better to use proxy for them
+      - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/akamai/akamai_plain_ipv4.txt
     outbound: warp
