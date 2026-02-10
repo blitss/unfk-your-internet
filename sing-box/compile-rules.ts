@@ -122,11 +122,11 @@ const generateSrs = async (
   const rules: Record<string, unknown>[] = [];
 
   if (data.domains.length > 0) {
-    rules.push({ domain_suffix: data.domains, port: ports });
+    rules.push({ domain_suffix: data.domains });
   }
 
   if (data.subnets.length > 0) {
-    rules.push({ ip_cidr: data.subnets, port: ports });
+    rules.push({ ip_cidr: data.subnets });
   }
 
   if (rules.length === 0) {
