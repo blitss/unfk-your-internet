@@ -31,6 +31,11 @@
         "discordcdn.com",
         "discord-attachments-uploads-prd.storage.googleapis.com",
         "hammerandchisel.ssl.zendesk.com"
+      ],
+      "port": [
+        80,
+        443,
+        5222
       ]
     },
     {
@@ -1962,6 +1967,11 @@
         "91.108.12.0/22",
         "149.154.172.0/22",
         "91.108.20.0/22"
+      ],
+      "port": [
+        80,
+        443,
+        5222
       ]
     }
   ]
