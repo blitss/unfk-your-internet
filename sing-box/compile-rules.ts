@@ -118,14 +118,15 @@ const generateSrs = async (
   await Bun.write(join(jsonDir, ".gitkeep"), "");
   await Bun.write(join(srsDir, ".gitkeep"), "");
 
-  const rules: Record<string, string[]>[] = [];
+  const ports = [80, 443, 5222];
+  const rules: Record<string, unknown>[] = [];
 
   if (data.domains.length > 0) {
-    rules.push({ domain_suffix: data.domains });
+    rules.push({ domain_suffix: data.domains, port: ports });
   }
 
   if (data.subnets.length > 0) {
-    rules.push({ ip_cidr: data.subnets });
+    rules.push({ ip_cidr: data.subnets, port: ports });
   }
 
   if (rules.length === 0) {
