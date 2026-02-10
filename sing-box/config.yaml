@@ -22,6 +22,7 @@ rules:
       - https://raw.githubusercontent.com/123jjck/cdn-ip-ranges/refs/heads/main/akamai/akamai_plain_ipv4.txt
       # Telegram
       - https://raw.githubusercontent.com/ipverse/as-ip-blocks/master/as/62041/ipv4-aggregated.txt
+      - https://raw.githubusercontent.com/ipverse/as-ip-blocks/master/as/62014/ipv4-aggregated.txt
       - https://raw.githubusercontent.com/ipverse/as-ip-blocks/master/as/211157/ipv4-aggregated.txt
       - https://raw.githubusercontent.com/ipverse/as-ip-blocks/master/as/59930/ipv4-aggregated.txt
       - https://raw.githubusercontent.com/ipverse/as-ip-blocks/master/as/44907/ipv4-aggregated.txt
