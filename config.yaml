@@ -27,30 +27,14 @@ NFQWS_OPT: |
   --dpi-desync-fake-quic=/opt/zapret/files/fake/quic_initial_www_google_com.bin
   --new
 
-  # WA rule
-  --filter-tcp=80,443,5222
-  --ipset=/opt/zapret/ipset/wa-ipset.txt
-  --dpi-desync multisplit
-  --dpi-desync-split-seqovl 1
-  --dpi-desync-split-pos 3,midsld,sld+1
-  --dpi-desync-cutoff=0
-  --dpi-desync-any-protocol
-  --new
-
-  # [UDP] WA rule
-  --filter-udp=3478,443,50000-65534
-  --ipset=/opt/zapret/ipset/wa-ipset.txt
-  --dpi-desync=ipfrag2
-  --dpi-desync-cutoff=0
-  --new
-
   # rkn blocked domains
   --filter-tcp=80,443
   --hostlist=/opt/zapret/ipset/zapret-hosts-user.txt
   --dpi-desync=fake
   --dpi-desync-repeats=6
   --dpi-desync-fooling=ts
-  --dpi-desync-fake-tls=/opt/zapret/files/fake/max.bin
+  --dpi-desync-fake-tls=/opt/zapret/files/fake/tls_clienthello_4pda_to.bin
+  --dpi-desync-fake-tls-mod=none
   --new
 
   # [quic] rkn blocked domains
@@ -68,7 +52,8 @@ NFQWS_OPT: |
   --dpi-desync=fake
   --dpi-desync-repeats=6
   --dpi-desync-fooling=ts
-  --dpi-desync-fake-tls=/opt/zapret/files/fake/max.bin
+  --dpi-desync-fake-tls=/opt/zapret/files/fake/tls_clienthello_4pda_to.bin
+  --dpi-desync-fake-tls-mod=none
   --new
 
   # [quic] cdn ip ranges (cloudflare, amazon, hetzner and so on)
@@ -100,7 +85,8 @@ NFQWS_OPT: |
 
   # any hosts that are not on the list
   --filter-tcp=80,443 <HOSTLIST>
-  --dpi-desync=fake 
-  --dpi-desync-repeats=6 
-  --dpi-desync-fooling=ts 
-  --dpi-desync-fake-tls=/opt/zapret/files/fake/tls_clienthello_max_ru.bin
+  --dpi-desync=fake
+  --dpi-desync-repeats=6
+  --dpi-desync-fooling=ts
+  --dpi-desync-fake-tls=/opt/zapret/files/fake/tls_clienthello_4pda_to.bin
+  --dpi-desync-fake-tls-mod=none
