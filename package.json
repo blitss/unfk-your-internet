@@ -2,7 +2,8 @@
   "name": "zapret-spb-strategy",
   "type": "module",
   "scripts": {
-    "sync": "bun run sync-lists.ts"
+    "sync": "bun run sync-lists.ts && bun run gen-mihomo-lists.ts",
+    "gen:mihomo": "bun run gen-mihomo-lists.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.3.6"
